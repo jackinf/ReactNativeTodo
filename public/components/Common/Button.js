@@ -2,18 +2,18 @@
  * Created by stylehopper on 28.06.16.
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   TouchableHighlight,
   Text
 } from 'react-native';
 
-class Button extends React.Component{
+class Button extends Component {
   constructor() {
     super();
 
-    this.state = { active: false };
+    this.state = {active: false};
 
     this._onHighlight = this._onHighlight.bind(this);
     this._onUnhighlight = this._onUnhighlight.bind(this);

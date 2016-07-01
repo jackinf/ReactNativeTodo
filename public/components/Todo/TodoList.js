@@ -15,12 +15,12 @@ import {
 import Button from './../Common/Button';
 
 const rows = [
-  { id: '1', title: 'Todo 1', description: 'I must do something' },
-  { id: '2', title: 'Todo 2', description: 'I must do something' },
-  { id: '3', title: 'Todo 3', description: 'I must do something' },
-  { id: '4', title: 'Todo 4', description: 'I must do something' },
-  { id: '5', title: 'Todo 5', description: 'I must do something' },
-  { id: '6', title: 'Todo 6', description: 'I must do something' }
+  {id: '1', title: 'Todo 1', description: 'I must do something'},
+  {id: '2', title: 'Todo 2', description: 'I must do something'},
+  {id: '3', title: 'Todo 3', description: 'I must do something'},
+  {id: '4', title: 'Todo 4', description: 'I must do something'},
+  {id: '5', title: 'Todo 5', description: 'I must do something'},
+  {id: '6', title: 'Todo 6', description: 'I must do something'}
 ];
 var lastRowNr = 6;
 //
@@ -40,7 +40,7 @@ class TodoList extends React.Component {
     this.onPressStartAddTodo = this.onPressStartAddTodo.bind(this);
 
     const ds = this.getListView();
-    this.state = { dataSource: ds.cloneWithRows(rows) };
+    this.state = {dataSource: ds.cloneWithRows(rows)};
   }
 
   getListView() {
@@ -58,10 +58,11 @@ class TodoList extends React.Component {
     //   ]
     // )
     rows.splice(rid, 1);
-    this.setState({ dataSource: this.getListView().cloneWithRows(rows)} );
+    this.setState({dataSource: this.getListView().cloneWithRows(rows)});
   }
 
   onPressStartAddTodo() {
+    console.log("HI");
     lastRowNr++;
     rows.push({
       id: lastRowNr,
@@ -76,7 +77,7 @@ class TodoList extends React.Component {
   renderRow = (todo, sid, rid) => {
     return (
       <TouchableHighlight onPress={e => this.onPressRow(rid)}>
-        <Text>{todo.title}</Text>
+        <Text>jevg {todo.title}</Text>
       </TouchableHighlight>
     )
   };
@@ -85,7 +86,7 @@ class TodoList extends React.Component {
     return (
       <View>
         <View>
-          <Button onPress={this.onPressStartAddTodo} />
+          <Button onPress={this.onPressStartAddTodo}/>
         </View>
         <ListView
           dataSource={this.state.dataSource}
