@@ -5,18 +5,30 @@
  */
 
 import React, { Component } from 'react';
-import DrawerLayoutAndroid from 'DrawerLayoutAndroid';
+import Relay from 'react-relay';
 import {
   AppRegistry,
   Text,
   View
 } from 'react-native';
 
-import AppNavigator from './public/navigation/AppNavigator';
+import config from './config';
+import Main from './public/components/Main';
+
+Relay.injectNetworkLayer(
+  new Relay.DefaultNetworkLayer(config.graphqlURL)
+);
 
 class ReactNativeTodo extends Component {
+  // render() {
+  //   return <AppNavigator initialRoute={{ ident: "TodoIndex" }} />;
+  // }
   render() {
-    return <AppNavigator initialRoute={{ ident: "TodoIndex" }} />;
+    var viewerRoute = new ViewerRoute();
+    return (<Relay.RootContainer
+      Component={Main}
+      route={viewerRoute}
+    />);
   }
 }
 

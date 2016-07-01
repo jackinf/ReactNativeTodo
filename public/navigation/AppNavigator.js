@@ -6,11 +6,22 @@ import React, { Component } from 'react';
 import {
   Navigator,
   Text,
-  StyleSheet
+  StyleSheet,
+  BackAndroid
 } from 'react-native'
 
 import TodoIndexScreen from '../screens/TodoIndexScreen'
 import TodoShowScreen from '../screens/TodoShowScreen'
+
+// var _navigator;
+// BackAndroid.addEventListener('hardwareBackPress', () => {
+//   if (_navigator && _navigator.getCurrentRoutes().length > 1) {
+//     _navigator.pop();
+//     return true;
+//   }
+//   return false;
+// });
+
 
 class AppNavigator extends Component {
 
