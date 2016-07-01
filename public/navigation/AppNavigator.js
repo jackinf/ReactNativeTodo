@@ -33,7 +33,7 @@ class AppNavigator extends Component {
         return (
           <TodoShowScreen
             {...globalNavigatorProps}
-            person={route.person}/>
+            todo={route.todo}/>
         );
 
       default:
