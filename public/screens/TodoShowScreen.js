@@ -15,54 +15,32 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import ViewContainer from '../components/Common/ViewContainer'
 import StatusBarBackground from '../components/Common/StatusBarBackground'
-import todosCollection from '../../server/database';
 
 class TodoIndexScreen extends Component {
   constructor(props) {
     super(props);
     this._goBack = this._goBack.bind(this);
-
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
-    this.state = {todosDataSource: ds.cloneWithRows(todosCollection)};
   }
 
   render() {
-    console.log(this.props);
+    const { todo } = this.props;
+
     return (
-      <ViewContainer style={{backgroundColor: this.props.todo.color}}>
+      <ViewContainer style={{backgroundColor: todo.color}}>
         <StatusBarBackground style={{backgroundColor: "mistyrose"}}/>
         <TouchableOpacity onPress={this._goBack}>
-          <Icon name="rocket" size={30} color="#900" />
+          <Icon name="times" size={30} color="#900" />
         </TouchableOpacity>
-        <ListView
-          style={{marginTop: 100}}
-          initialListSize={10}
-          dataSource={this.state.todosDataSource}
-          renderRow={(todo) => { return this._renderTodoRow(todo) }}/>
+        <View>
+          <Text style={styles.todoTitle}>{`${_.capitalize(todo.title)}`}</Text>
+          <Text style={styles.todoDescription}>{`${_.capitalize(todo.description)}`}</Text>
+        </View>
       </ViewContainer>
     )
   }
 
   _goBack() {
     this.props.navigator.pop();
-  }
-
-  _renderTodoRow(todos) {
-    return (
-      <TouchableOpacity style={styles.todoRow} onPress={(event) => this._navigateToTodoShow(todos) }>
-
-        <Text style={styles.todoTitle}>{`${_.capitalize(todos.title)} - ${_.capitalize(todos.color)}`}</Text>
-        <View style={{flex: 1}}/>
-        <Icon name="chevron-right" size={10} style={styles.todoMoreIcon}/>
-      </TouchableOpacity>
-    )
-  }
-
-  _navigateToTodoShow(todo) {
-    this.props.navigator.push({
-      ident: "TodoShow",
-      todo
-    })
   }
 }
 
@@ -82,7 +60,14 @@ const styles = StyleSheet.create({
   },
 
   todoTitle: {
-    marginLeft: 25
+    marginLeft: 25,
+    fontSize: 20
+  },
+
+  todoDescription: {
+    marginLeft: 25,
+    marginTop: 30,
+    fontSize: 16
   },
 
   todoMoreIcon: {

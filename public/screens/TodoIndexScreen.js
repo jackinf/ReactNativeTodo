@@ -15,12 +15,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import ViewContainer from '../components/Common/ViewContainer';
 import StatusBarBackground from '../components/Common/StatusBarBackground';
-import todosCollection from '../../server/database';
+import { getAll } from '../../server/database';
 
 class TodoIndexScreen extends Component {
   constructor(props) {
     super(props);
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
+    var todosCollection = getAll();
     this.state = {todosDataSource: ds.cloneWithRows(todosCollection)};
   }
 
