@@ -7,7 +7,7 @@ const DogSchema = {
   name: 'Dog',
   schemaVersion: 1,
   properties: {
-    // id: { type: 'number', default: 1 },
+    // rootNumber: { type: 'int', default: 1 },
     name: 'string'
   }
 };
