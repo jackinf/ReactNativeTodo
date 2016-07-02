@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import Relay from 'react-relay';
+// import Relay from 'react-relay';
 import {
   AppRegistry,
   Text,
@@ -13,23 +13,24 @@ import {
 } from 'react-native';
 
 import config from './config';
-import Main from './public/components/Main';
+// import Main from './public/components/Main';
+import AppNavigator from './public/navigation/AppNavigator';
 
-Relay.injectNetworkLayer(
-  new Relay.DefaultNetworkLayer(config.graphqlURL)
-);
+// Relay.injectNetworkLayer(
+//   new Relay.DefaultNetworkLayer(config.graphqlURL)
+// );
 
 class ReactNativeTodo extends Component {
-  // render() {
-  //   return <AppNavigator initialRoute={{ ident: "TodoIndex" }} />;
-  // }
   render() {
-    var viewerRoute = new ViewerRoute();
-    return (<Relay.RootContainer
-      Component={Main}
-      route={viewerRoute}
-    />);
+    return <AppNavigator initialRoute={{ ident: "TodoIndex" }} />;
   }
+  // render() {
+  //   var viewerRoute = new ViewerRoute();
+  //   return (<Relay.RootContainer
+  //     Component={Main}
+  //     route={viewerRoute}
+  //   />);
+  // }
 }
 
 AppRegistry.registerComponent('ReactNativeTodo', () => ReactNativeTodo);
