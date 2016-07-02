@@ -6,12 +6,17 @@ import React, { Component } from 'react';
 import {
   Navigator,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity,
+  View
 } from 'react-native'
+
+import GoBack from '../components/Common/GoBack';
 
 import TodoIndexScreen from '../screens/TodoIndexScreen'
 import TodoShowScreen from '../screens/TodoShowScreen'
 import RealmIndexScreen from '../screens/RealmIndexScreen';
+import CounterScreen from '../screens/CounterScreen';
 
 class AppNavigator extends Component {
 
@@ -44,9 +49,19 @@ class AppNavigator extends Component {
             todo={route.todo}/>
         );
 
+      case "CounterScreen":
+        return (
+          <CounterScreen
+            {...globalNavigatorProps}
+            />
+        );
+
       default:
         return (
-          <Text>{`YO YOU MESSED SOMETHING UP ${route}`}</Text>
+          <View>
+            <Text>{`YO YOU MESSED SOMETHING UP ${route}`}</Text>
+            <GoBack navigator={navigator} />
+          </View>
         );
     }
   }
@@ -58,11 +73,12 @@ class AppNavigator extends Component {
         ref="appNavigator"
         style={styles.navigatorStyles}
         renderScene={this._renderScene}
-        configureScene={(route) => ({
-          ...route.sceneConfig || Navigator.SceneConfigs.FloatFromRight })}/>
+/>
     )
   }
 
+  // configureScene={(route) => ({
+  //   ...route.sceneConfig || Navigator.SceneConfigs.FloatFromRight })}/>
 }
 
 const styles = StyleSheet.create({

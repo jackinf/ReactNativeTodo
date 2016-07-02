@@ -11,7 +11,10 @@
     "react": "^15.2.0",
     "react-native": "^0.28.0",
     "react-native-vector-icons": "^2.0.3",
-    "realm": "^0.14.1"
+    "realm": "^0.14.1",
+    "redux": "^3.5.2",
+    "redux-actions": "^0.10.0",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "babel-jest": "*",

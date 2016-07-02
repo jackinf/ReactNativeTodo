@@ -23,6 +23,7 @@ class TodoIndexScreen extends Component {
 
     this._navigateToTodoShow = this._navigateToTodoShow.bind(this);
     this._navigateToRealmScreen = this._navigateToRealmScreen.bind(this);
+    this._navigateToReduxScreen = this._navigateToReduxScreen.bind(this);
 
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
     var todosCollection = getAll();
@@ -34,7 +35,10 @@ class TodoIndexScreen extends Component {
       <ViewContainer>
         <StatusBarBackground style={{backgroundColor: "mistyrose"}}/>
         <TouchableOpacity onPress={(event) => this._navigateToRealmScreen() }>
-          <Icon name="rocket" size={30} color="#900" />
+          <Text>Realm demo <Icon name="rocket" size={30} color="#900" /></Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={(event) => this._navigateToReduxScreen() }>
+          <Text>Redux demo <Icon name="planet" size={30} color="#393" /></Text>
         </TouchableOpacity>
         <ListView
           style={{marginTop: 100}}
@@ -64,6 +68,10 @@ class TodoIndexScreen extends Component {
 
   _navigateToRealmScreen() {
     this.props.navigator.push({ident: 'RealmIndexScreen'});
+  }
+
+  _navigateToReduxScreen() {
+    this.props.navigator.push({ident: 'CounterScreen'});
   }
 
 }
