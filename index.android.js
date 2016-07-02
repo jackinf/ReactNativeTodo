@@ -5,11 +5,11 @@
  */
 
 import React, { Component } from 'react';
-import DrawerLayoutAndroid from 'DrawerLayoutAndroid';
 import {
   AppRegistry,
   Text,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 
 import AppNavigator from './public/navigation/AppNavigator';
@@ -19,5 +19,19 @@ class ReactNativeTodo extends Component {
     return <AppNavigator initialRoute={{ ident: "TodoIndex" }} />;
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10
+  }
+});
 
 AppRegistry.registerComponent('ReactNativeTodo', () => ReactNativeTodo);

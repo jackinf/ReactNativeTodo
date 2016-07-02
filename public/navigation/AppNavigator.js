@@ -11,6 +11,7 @@ import {
 
 import TodoIndexScreen from '../screens/TodoIndexScreen'
 import TodoShowScreen from '../screens/TodoShowScreen'
+import RealmIndexScreen from '../screens/RealmIndexScreen';
 
 class AppNavigator extends Component {
 
@@ -32,6 +33,13 @@ class AppNavigator extends Component {
       case "TodoShow":
         return (
           <TodoShowScreen
+            {...globalNavigatorProps}
+            todo={route.todo}/>
+        );
+
+      case "RealmIndexScreen":
+        return (
+          <RealmIndexScreen
             {...globalNavigatorProps}
             todo={route.todo}/>
         );

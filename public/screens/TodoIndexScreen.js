@@ -20,6 +20,10 @@ import { getAll } from '../../server/database';
 class TodoIndexScreen extends Component {
   constructor(props) {
     super(props);
+
+    this._navigateToTodoShow = this._navigateToTodoShow.bind(this);
+    this._navigateToRealmScreen = this._navigateToRealmScreen.bind(this);
+
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
     var todosCollection = getAll();
     this.state = {todosDataSource: ds.cloneWithRows(todosCollection)};
@@ -29,6 +33,9 @@ class TodoIndexScreen extends Component {
     return (
       <ViewContainer>
         <StatusBarBackground style={{backgroundColor: "mistyrose"}}/>
+        <TouchableOpacity onPress={(event) => this._navigateToRealmScreen() }>
+          <Icon name="rocket" size={30} color="#900" />
+        </TouchableOpacity>
         <ListView
           style={{marginTop: 100}}
           initialListSize={10}
@@ -52,7 +59,11 @@ class TodoIndexScreen extends Component {
     this.props.navigator.push({
       ident: "TodoShow",
       todo
-    })
+    });
+  }
+
+  _navigateToRealmScreen() {
+    this.props.navigator.push({ident: 'RealmIndexScreen'});
   }
 
 }
@@ -62,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
 
   todoRow: {
