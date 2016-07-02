@@ -8,14 +8,14 @@ import {
   Text
 } from 'react-native';
 
-import GoBack from '../components/Common/GoBack';
+// import GoBack from '../components/Common/GoBack';
+import ReduxApp from '../containers/app';
 
 class CounterScreen extends React.Component {
   render() {
     return (
       <View>
-        <Text>Counter</Text>
-        <GoBack navigator={this.props.navigator} />
+        <ReduxApp />
       </View>
     )
   }

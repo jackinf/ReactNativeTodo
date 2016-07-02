@@ -16,7 +16,7 @@ import GoBack from '../components/Common/GoBack';
 import TodoIndexScreen from '../screens/TodoIndexScreen'
 import TodoShowScreen from '../screens/TodoShowScreen'
 import RealmIndexScreen from '../screens/RealmIndexScreen';
-import CounterScreen from '../screens/CounterScreen';
+// import CounterScreen from '../screens/CounterScreen';
 
 class AppNavigator extends Component {
 
@@ -49,12 +49,12 @@ class AppNavigator extends Component {
             todo={route.todo}/>
         );
 
-      case "CounterScreen":
-        return (
-          <CounterScreen
-            {...globalNavigatorProps}
-            />
-        );
+      // case "CounterScreen":
+      //   return (
+      //     <CounterScreen
+      //       {...globalNavigatorProps}
+      //       />
+      //   );
 
       default:
         return (
