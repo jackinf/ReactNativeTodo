@@ -13,10 +13,11 @@ import {
 } from 'react-native';
 
 import AppNavigator from './public/navigation/AppNavigator';
+import * as screenTypes from './public/navigation/ScreenTypes';
 
 class ReactNativeTodo extends Component {
   render() {
-    return <AppNavigator initialRoute={{ ident: "TodoIndex" }} />;
+    return <AppNavigator initialRoute={{ ident: screenTypes.MAIN }} />;
   }
 }
 

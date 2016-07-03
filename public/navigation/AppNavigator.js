@@ -13,10 +13,13 @@ import {
 
 import GoBack from '../components/Common/GoBack';
 
-import TodoIndexScreen from '../screens/TodoIndexScreen'
+import MainScreen from '../screens/MainScreen'
 import TodoShowScreen from '../screens/TodoShowScreen'
 // import RealmIndexScreen from '../screens/RealmIndexScreen';
 import CounterScreen from '../screens/CounterScreen';
+// import GoogleMapScreen from '../screens/GoogleMapScreen';
+
+import * as screenTypes from '../navigation/ScreenTypes';
 
 class AppNavigator extends Component {
 
@@ -29,13 +32,13 @@ class AppNavigator extends Component {
     var globalNavigatorProps = {navigator};
 
     switch (route.ident) {
-      case "TodoIndex":
+      case screenTypes.MAIN:
         return (
-          <TodoIndexScreen
+          <MainScreen
             {...globalNavigatorProps} />
         );
 
-      case "TodoShow":
+      case screenTypes.TODO_SHOW:
         return (
           <TodoShowScreen
             {...globalNavigatorProps}
@@ -49,12 +52,19 @@ class AppNavigator extends Component {
       //       todo={route.todo}/>
       //   );
 
-      case "CounterScreen":
+      case screenTypes.COUNTER:
         return (
           <CounterScreen
             {...globalNavigatorProps}
             />
         );
+
+      // case screenTypes.GOOGLE_MAP:
+      //   return (
+      //     <GoogleMapScreen
+      //       {...globalNavigatorProps}
+      //     />
+      //   );
 
       default:
         return (

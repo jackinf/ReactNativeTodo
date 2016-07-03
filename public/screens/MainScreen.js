@@ -16,8 +16,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import ViewContainer from '../components/Common/ViewContainer';
 import StatusBarBackground from '../components/Common/StatusBarBackground';
 import { getAll } from '../../server/database';
+import * as screenTypes from '../navigation/ScreenTypes';
 
-class TodoIndexScreen extends Component {
+class MainScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -39,6 +40,9 @@ class TodoIndexScreen extends Component {
         </TouchableOpacity>
         <TouchableOpacity onPress={(event) => this._navigateToReduxScreen() }>
           <Text>Redux demo <Icon name="glass" size={30} color="#393" /></Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={(event) => this._navigateToGoogleMapScreen() }>
+          <Text>MapView demo <Icon name="map" size={30} color="#009" /></Text>
         </TouchableOpacity>
         <ListView
           style={{marginTop: 100}}
@@ -67,11 +71,15 @@ class TodoIndexScreen extends Component {
   }
 
   _navigateToRealmScreen() {
-    this.props.navigator.push({ident: 'RealmIndexScreen'});
+    this.props.navigator.push({ident: screenTypes.REALM_INDEX});
   }
 
   _navigateToReduxScreen() {
-    this.props.navigator.push({ident: 'CounterScreen'});
+    this.props.navigator.push({ident: screenTypes.COUNTER});
+  }
+
+  _navigateToGoogleMapScreen() {
+    this.props.navigator.push({ident: screenTypes.GOOGLE_MAP});
   }
 
 }
@@ -104,4 +112,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default TodoIndexScreen;
+export default MainScreen;
