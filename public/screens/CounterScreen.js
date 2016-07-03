@@ -15,7 +15,7 @@ class CounterScreen extends React.Component {
   render() {
     return (
       <View>
-        <ReduxApp />
+        <ReduxApp navigator={this.props.navigator} />
       </View>
     )
   }

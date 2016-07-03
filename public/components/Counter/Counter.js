@@ -6,6 +6,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import GoBack from '../Common/GoBack';
+
 const styles = StyleSheet.create({
   button: {
     width: 100,
@@ -28,6 +30,7 @@ export default class Counter extends React.Component {
 
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <GoBack navigator={this.props.navigator} />
         <Text>{counter}</Text>
         <TouchableOpacity onPress={increment} style={styles.button}>
           <Text>up</Text>

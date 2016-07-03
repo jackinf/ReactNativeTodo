@@ -38,7 +38,7 @@ class TodoIndexScreen extends Component {
           <Text>Realm demo <Icon name="rocket" size={30} color="#900" /></Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={(event) => this._navigateToReduxScreen() }>
-          <Text>Redux demo <Icon name="planet" size={30} color="#393" /></Text>
+          <Text>Redux demo <Icon name="glass" size={30} color="#393" /></Text>
         </TouchableOpacity>
         <ListView
           style={{marginTop: 100}}

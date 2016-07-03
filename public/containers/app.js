@@ -1,4 +1,4 @@
-import React, { Component } from 'react-native';
+import React, { Component } from 'react';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -12,9 +12,10 @@ const store = createStoreWithMiddleware(reducer);
 
 export default class App extends Component {
   render() {
+    console.log(this.props);
     return (
       <Provider store={store}>
-        <CounterApp />
+        <CounterApp navigator={this.props.navigator} />
       </Provider>
     );
   }

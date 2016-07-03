@@ -18,6 +18,7 @@ class CounterApp extends React.Component {
     const { state, actions } = this.props;
     return (
       <Counter
+        navigator={this.props.navigator}
         counter={state.count}
         {...actions} />
     );
